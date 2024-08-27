@@ -1,9 +1,12 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:buttons_tabbar/buttons_tabbar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:prac_task/features/drawer/profile_drawer.dart';
+import 'package:prac_task/features/history/view/history_screen.dart';
 import 'package:prac_task/utils/constants/color.dart';
 import 'package:prac_task/common/components/custom_tab_bar.dart';
 import 'package:prac_task/common/components/food_card.dart';
@@ -246,7 +249,14 @@ class _DrawerScreenState extends State<DrawerScreen> {
             // crossAxisAlignment: CrossAxisAlignment.center,
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              drawerRows(icon: Icons.co_present_outlined, name: "Profile"),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (_) => ProfileDrawer()));
+                },
+                child: drawerRows(
+                    icon: Icons.co_present_outlined, name: "Profile"),
+              ),
               SizedBox(
                 height: 20,
               ),
@@ -254,8 +264,14 @@ class _DrawerScreenState extends State<DrawerScreen> {
               SizedBox(
                 height: 20,
               ),
-              drawerRows(
-                  icon: Icons.shopping_cart_checkout_sharp, name: "Orders"),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (_) => HistoryScreen()));
+                },
+                child: drawerRows(
+                    icon: Icons.shopping_cart_checkout_sharp, name: "Orders"),
+              ),
               SizedBox(
                 height: 20,
               ),

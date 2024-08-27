@@ -13,10 +13,15 @@ class HistoryScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: scaffold,
         centerTitle: true,
-        leading: Icon(
-          Icons.arrow_back_ios_new_sharp,
-          size: 20,
-          color: black,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back_ios_new_sharp,
+            size: 20,
+            color: black,
+          ),
         ),
         title: Text(
           "History",
